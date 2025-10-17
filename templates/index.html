@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SEO Discovery Pitch Tool</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f3f6fa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a73e8, #0056b3);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+        }
+        .container h2 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #1a73e8;
+            text-align: center;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0 18px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border 0.2s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #1a73e8;
+            box-shadow: 0 0 6px rgba(26,115,232,0.3);
+        }
+        .checkbox {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+        }
+        .checkbox input {
+            width: auto;
+            margin-right: 8px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            font-size: 18px;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background: #f9f9ff;
+            white-space: pre-line;
+        }
+        .result h3 {
+            margin-top: 0;
+            color: #1a73e8;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 SEO Discovery Pitch Tool</h1>
+        <p>Generate personalized business pitches with SEO insights</p>
+    </div>
+
+    <div class="container">
+        <h2>Create Your Pitch</h2>
+        <form method="post">
+            <input type="text" name="url" placeholder="🔗 Target Website URL" required>
+            <input type="text" name="company" placeholder="🏢 Your Company Name" required>
+            <input type="email" name="email" placeholder="📧 Your Email" required>
+            <input type="text" name="phone" placeholder="📞 Your Phone Number" required>
+            <select name="service" required>
+                <option value="">📌 Select a Service</option>
+                <option value="SEO">SEO</option>
+                <option value="App Development">App Development</option>
+                <option value="Website Development">Website Development</option>
+            </select>
+            <div class="checkbox">
+                <input type="checkbox" name="use_seo" id="use_seo">
+                <label for="use_seo">Include SEO Keywords in Pitch</label>
+            </div>
+            <button type="submit">✨ Generate Pitch</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>Generated Pitch:</h3>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <p>© {{ company if company else "SEO Discovery" }} | Powered by AI</p>
+    </div>
+</body>
+</html>
